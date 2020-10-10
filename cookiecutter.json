@@ -1,0 +1,8 @@
+{
+    "project_name": "my_project",
+    "db": "db",
+    "user": "user",
+    "password": "password",
+    "root_password": "root_password",
+    "workspace": "workspace"
+}
