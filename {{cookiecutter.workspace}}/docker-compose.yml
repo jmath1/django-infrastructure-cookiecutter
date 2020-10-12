@@ -11,7 +11,7 @@ services:
     volumes:
     - app-files:/srv/app_files
 
-  mysql:
+  db:
     image: mysql:latest
     ports:
       - 3306:3306
