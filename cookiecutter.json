@@ -10,5 +10,5 @@
     "droplet_os": "ubuntu-20-04-x64",
     "add_volume": "True",
     "server_name": "my_server",
-    "volume_name": "my_volume",
+    "volume_name": "my_volume"
 }
