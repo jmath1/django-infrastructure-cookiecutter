@@ -2,15 +2,15 @@
 
 variable "droplet_region" {
   type = string
-  default = "{{ droplet_region }}"
+  default = "{{ cookiecutter.droplet_region }}"
 }
 
 variable "droplet_size" {
   type = string
-  default = "{{ droplet_size }}"
+  default = "{{ cookiecutter.droplet_size }}"
 }
 
 variable "droplet_os" {
   type = string
-  default = "{{ droplet_os }}"
+  default = "{{ cookiecutter.droplet_os }}"
 }
