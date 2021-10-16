@@ -34,7 +34,3 @@ app:
   
 deploy:
 	- ansible-playbook -l {{ cookiecutter.droplet_name }} ansible/playbooks/setup_app.yml
-
-ssh:
-	- ssh root@137.184.133.147 -i ~/.ssh/id_rsa
-
