@@ -9,7 +9,7 @@ services:
     command: gunicorn --bind 0.0.0.0:8000 {{cookiecutter.project_name}}.wsgi:application
     env_file: .env
     volumes:
-    - app-files:/srv/app_files
+    - $PWD/{{cookiecutter.project_name}}:/srv/app_files
 
   db:
     image: mysql:latest
@@ -29,11 +29,4 @@ services:
     - django
     volumes:
     - ./docker/nginx:/etc/nginx/conf.d
-    - app-files:/srv/{{cookiecutter.project_name}}
-
-volumes:
-  app-files:
-    driver_opts:
-      type: nfs
-      device: $PWD/{{cookiecutter.project_name}}
-      o: bind
+    - $PWD/{{cookiecutter.project_name}}:/srv/{{cookiecutter.project_name}}

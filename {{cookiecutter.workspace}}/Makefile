@@ -19,12 +19,22 @@ apply:
 	terraform -chdir=terraform apply -refresh=false -parallelism=15
 inventory:
 	- make requirements
-	- ./ansible/utils/generate_inventory.py
-terraform:
+	- mkdir ./ansible/inventories/
+	- python ./ansible/utils/generate_inventory.py
+tf:
 	- make apply
 	- make inventory
-app:
-	- make terraform
+setup:
+	- make tf
 	- ansible-playbook -l {{ cookiecutter.droplet_name }} ansible/playbooks/setup_root.yml
-	- ansible-playbook -l {{ cookiecutter.droplet_name }} ansible/playbooks/setup_app.yml
+
+app:
+	- make setup
+	- make deploy
   
+deploy:
+	- ansible-playbook -l {{ cookiecutter.droplet_name }} ansible/playbooks/setup_app.yml
+
+ssh:
+	- ssh root@137.184.133.147 -i ~/.ssh/id_rsa
+
