@@ -5,6 +5,7 @@
     "password": "password",
     "root_password": "root_password",
     "workspace": "workspace",
+    "droplet_name": "my_droplet",
     "droplet_region": "nyc1",
     "droplet_size": "s-1vcpu-1gb",
     "droplet_os": "ubuntu-20-04-x64",
