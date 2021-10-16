@@ -1,3 +1,4 @@
+{% raw %}
 ---
 - name: SETUP -> ssh access
   hosts: all
@@ -77,3 +78,4 @@
         rule: allow
         port: '80'
         proto: tcp
+{% endraw %}

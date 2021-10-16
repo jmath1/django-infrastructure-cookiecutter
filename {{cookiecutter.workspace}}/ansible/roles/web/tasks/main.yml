@@ -1,7 +1,9 @@
+
+
 ---
 - name: Syncronize local repo with cloud repo
   synchronize:
-      src: /{{ playbook_dir }}/../{{ cookiecutter.workspace }}/
+      src: /{% raw %}{{ playbook_dir }}{% endraw %}/../{{ cookiecutter.workspace }}/
       dest: /srv/{{ cookiecutter.workspace }}/
       rsync_opts:
         - "--exclude=.git"

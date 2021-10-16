@@ -1,4 +1,5 @@
 ---
+{% raw %}
 # defaults file for docker-ce-ansible-role
 
 docker_state: present
@@ -26,3 +27,4 @@ docker_prerequisite_packages_Ubuntu:
 docker_prerequisite_packages_Ubuntu_1404:
   - {package: "linux-image-extra-{{ ansible_kernel }}"}
   - {package: "linux-image-extra-virtual"}
+{% endraw %}

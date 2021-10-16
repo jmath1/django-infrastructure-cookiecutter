@@ -1,3 +1,4 @@
+{% raw %}
 ---
 - name: SETUP -> Application
   hosts: all
@@ -11,3 +12,4 @@
   roles:
     - {role: 'docker', tags: 'docker'}
     - {role: 'web', tags: 'web'}
+  {% endraw %}
