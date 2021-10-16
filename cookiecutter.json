@@ -11,7 +11,7 @@
     "droplet_os": "ubuntu-20-04-x64",
     "add_volume": "True",
     "server_name": "my_server",
-    "volume_name": "my_volume",
+    "volume_name": "myvolume",
     "s3_state_storage": "",
     "aws_access_key_id": "",
     "aws_secret_access_key": "",
