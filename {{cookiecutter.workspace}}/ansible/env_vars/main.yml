@@ -1,3 +1,4 @@
+{% raw %}
 ---
 create_user: user1
 local_key: "{{ lookup('file', lookup('env','HOME') + '/.ssh/id_rsa.pub') }}"
@@ -13,3 +14,4 @@ sys_packages: [
   'ntp', 
   'htop'
 ]
+{% endraw %}
