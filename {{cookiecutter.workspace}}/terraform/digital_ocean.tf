@@ -16,12 +16,12 @@ terraform {
 }
 
 provider "digitalocean" {
-  token = trimspace(file("./keys/digital_ocean.token"))
+  token = trimspace(file("../keys/digital_ocean.token"))
 }
 
 resource "digitalocean_ssh_key" "default" {
   name       = "MY_SSH_KEY"
-  public_key = file("~/id_rsa.pub")
+  public_key = file("~/.ssh/id_rsa.pub")
 }
 
 # #################
@@ -51,7 +51,6 @@ resource "digitalocean_droplet" "{{ cookiecutter.droplet_name }}" {
 
 {% if cookiecutter.add_volume %}
 resource "digitalocean_volume" "{{ cookiecutter.volume_name }}" {
-  count                   = 0
   region                  = "nyc1"
   name                    = "{{ cookiecutter.volume_name }}"
   size                    = 100
