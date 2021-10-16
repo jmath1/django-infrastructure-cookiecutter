@@ -1,3 +1,4 @@
+{% raw %}
 ---
 # tasks file for docker-ce-ansible-role
 
@@ -48,3 +49,4 @@
     name: docker-compose
     state: present
     update_cache: yes
+{% endraw %}

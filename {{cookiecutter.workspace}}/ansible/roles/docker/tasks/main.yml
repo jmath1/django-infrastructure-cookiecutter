@@ -1,10 +1,6 @@
+{% raw %}
 ---
 # tasks file for docker-ce-ansible-role
-
-- name: Install docker-ce (RedHat)
-  include: install-EL.yml
-  when: ansible_os_family == 'RedHat'
-
 - name: Install docker-ce (Ubuntu)
   include: install-Ubuntu.yml
   when: ansible_distribution == 'Ubuntu'
@@ -34,3 +30,5 @@
   docker_network:
     name: newsblurnet
   notify: restart docker
+
+{% endraw %}
