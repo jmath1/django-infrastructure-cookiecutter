@@ -1,0 +1,13 @@
+---
+- name: SETUP -> Application
+  hosts: all
+  become: true
+  remote_user: "{{ create_user }}"
+  vars_files:
+    - ../env_vars/base.yml
+  vars:
+    ansible_ssh_user: "{{ create_user }}"
+
+  roles:
+    - {role: 'docker', tags: 'docker'}
+    - {role: 'web', tags: 'web'}
