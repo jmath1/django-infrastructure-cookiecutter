@@ -4,5 +4,11 @@
     "user": "user",
     "password": "password",
     "root_password": "root_password",
-    "workspace": "workspace"
+    "workspace": "workspace",
+    "droplet_region": "nyc1",
+    "droplet_size": "s-1vcpu-1gb",
+    "droplet_os": "ubuntu-20-04-x64",
+    "add_volume": "True",
+    "server_name": "my_server",
+    "volume_name": "my_volume",
 }
