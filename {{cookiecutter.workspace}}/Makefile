@@ -1,6 +1,8 @@
 compose:
 	docker-compose up -d
 # Digital Ocean / Terraform
+init:
+	terraform -chdir=terraform init
 tfrefresh:
 	terraform -chdir=terraform refresh
 plan:
