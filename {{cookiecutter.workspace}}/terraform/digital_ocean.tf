@@ -5,13 +5,14 @@ terraform {
       version = "1.22.2"
     }
   }
-
+  {% if cookiecutter.s3_state_storage %}
   backend "s3" {
     bucket = "{{ cookiecutter.project_name }}.terraform"
     key    = "{{ cookiecutter.project_name }}.terraform.tfstate"
     region = "us-east-1"
     shared_credentials_file = "./keys/aws.s3.token"
   }
+  {% endif %}
 }
 
 provider "digitalocean" {
