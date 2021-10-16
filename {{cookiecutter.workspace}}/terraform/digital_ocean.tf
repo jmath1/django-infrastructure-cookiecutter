@@ -29,24 +29,14 @@ resource "digitalocean_ssh_key" "default" {
 # #################
 
 resource "digitalocean_droplet" "{{ cookiecutter.droplet_name }}" {
-  count    = 3
   image    = var.droplet_os
-  name     = "db-consul${count.index+1}"
+  name     = "{{ cookiecutter.droplet_name }}"
   region   = var.droplet_region
   size     = var.droplet_size
   ssh_keys = [digitalocean_ssh_key.default.fingerprint]
   {% if cookiecutter.add_volume %}
   volume_ids = [digitalocean_volume.{{ cookiecutter.volume_name }}.id]
   {% endif %}
-  provisioner "local-exec" {
-    command = "./ansible/utils/generate_inventory.py; sleep 120"
-  }
-  provisioner "local-exec" {
-    command = "cd ..; ansible-playbook -l ${self.name} ansible/playbooks/setup_root.yml"
-  }
-  provisioner "local-exec" {
-    command = "cd ..; ansible-playbook -l ${self.name} ansible/setup.yml"
-  }
 }
 
 {% if cookiecutter.add_volume %}
