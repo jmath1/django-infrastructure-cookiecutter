@@ -1,6 +1,6 @@
 To use this cookiecutter, just download the cookiecutter python3 package and run:
 
-`cookiecutter  https://github.com/jmath1/docker-compose-django-nginx-cookiecutter.git`
+`cookiecutter  https://github.com/jmath1/django-infrastructure-cookiecutter.git`
 
 Follow the command prompt to create the end result. cd into the workspace (that you entered into the prompt), and run `make compose` to build locally.
 
