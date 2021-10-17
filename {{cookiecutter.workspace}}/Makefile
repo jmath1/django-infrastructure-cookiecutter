@@ -17,6 +17,8 @@ plan:
 	terraform -chdir=terraform plan -refresh=false
 apply:
 	terraform -chdir=terraform apply -refresh=false -parallelism=15
+
+# generates ansible inventory using python script
 inventory:
 	- make requirements
 	- mkdir ./ansible/inventories/
@@ -24,13 +26,17 @@ inventory:
 tf:
 	- make apply
 	- make inventory
+
+# set up infrastructure and root user
 setup:
 	- make tf
-	- ansible-playbook -l {{ cookiecutter.droplet_name }} ansible/playbooks/setup_root.yml
+	- ansible-playbook -i ansible/inventories/digital_ocean.ini -l {{ cookiecutter.droplet_name }} ansible/playbooks/setup_root.yml
 
+# set up infrastructure, root user, and deploy application code
 app:
 	- make setup
 	- make deploy
   
+# deploy application code
 deploy:
-	- ansible-playbook -l {{ cookiecutter.droplet_name }} ansible/playbooks/setup_app.yml
+	- ansible-playbook -i ansible/inventories/digital_ocean.ini -l {{ cookiecutter.droplet_name }} ansible/playbooks/setup_app.yml
