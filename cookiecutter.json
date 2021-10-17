@@ -14,5 +14,6 @@
     "s3_state_storage": "",
     "aws_access_key_id": "",
     "aws_secret_access_key": "",
-    "digitalocean_token": ""
+    "digitalocean_token": "",
+    "separate_db": ""
 }
