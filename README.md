@@ -11,6 +11,7 @@ To deploy to the cloud, you must have enterred a Digital Ocean api key when init
 To run the deployment, run `make app`.
 
 *** TODO ***
+* Make a CLI so users can have an easier time going through the cookie-cutter customization process. This would increase cookiecutter flexibility.
 * Make command for easy ssh access
 * Add terraform configuration and cookiecutter template a provisioned database instead of a docker container database
 * Add support for AWS EC2
