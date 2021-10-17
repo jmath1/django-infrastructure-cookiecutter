@@ -1,4 +1,4 @@
 FROM python:3.8-slim
 COPY requirements.txt requirements.txt
 RUN pip3 install -r requirements.txt
-WORKDIR srv/app_files
+WORKDIR /srv/{{ cookiecutter.workspace }}/{{ cookiecutter.project_name }}
