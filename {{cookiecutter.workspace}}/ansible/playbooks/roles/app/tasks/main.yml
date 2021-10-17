@@ -1,20 +1,23 @@
 ---
 
 - name: build container image
+  become: true
   docker_image:
     name: {{ cookiecutter.workspace }}
     build:
-      path: /srv/{{ cookiecutter.workspace }}/Dockerfile
-      source: local
+      path: /srv/workspace/
+    source: build
+
 - name: Start app docker container
   become: yes
   docker_container:
-    name: app
-    image: nginx:1.19
+    hostname: django
+    name: django
+    image: {{ cookiecutter.workspace }}
     state: started
     ports:
-      - "80:80"
+      - "8000:8000"
     restart_policy: unless-stopped
+    command: gunicorn --bind 0.0.0.0:8000 {{ cookiecutter.project_name }}.wsgi:application
     volumes:
-      - /srv/{{ cookiecutter.workspace }}/docker/nginx.conf:/etc/nginx/conf.d/default.conf
       - /srv/{{ cookiecutter.workspace }}/:/srv/{{ cookiecutter.workspace }}/
