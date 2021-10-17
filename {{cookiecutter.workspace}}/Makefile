@@ -18,8 +18,8 @@ plan:
 apply:
 	terraform -chdir=terraform apply -refresh=false -parallelism=15
 destroy:
-	terraform -chdir=terraform desroy
-	
+	terraform -chdir=terraform destroy
+
 # generates ansible inventory using python script
 inventory:
 	- make requirements
