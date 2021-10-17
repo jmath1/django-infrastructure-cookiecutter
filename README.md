@@ -9,3 +9,11 @@ To deploy to the cloud, you must have enterred a Digital Ocean api key when init
 ** Before running `make app`, make sure to run `make git` so you are not deploying your API keys. **
 
 To run the deployment, run `make app`.
+
+*** TODO ***
+* Add terraform configuration and cookiecutter template a provisioned database instead of a docker container database
+* Add support for AWS EC2
+* Grafana/Prometheus Implementation for application monitoring via Ansible and Docker-Compose
+* Deploy across multiple servers and use Consul to connect the containers
+* Automated SSL implementation via ansible. Would require user input for domain name since domains cannot be provisioned via terraform.
+* Better security with Ansible Vault
