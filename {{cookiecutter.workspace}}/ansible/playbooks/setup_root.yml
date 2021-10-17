@@ -45,7 +45,7 @@
       authorized_key:
         user: "{{ create_user }}"
         state: present
-        key: "{{ copy_local_key }}"
+        key: "{{ local_key }}"
 
     - name: Disable password authentication for root
       lineinfile:
@@ -60,6 +60,8 @@
 
     - name: Install required system packages
       apt: name={{ sys_packages }} state=latest
+    - name: Install docker python library
+      command: pip3 install docker
 
  # UFW Setup
     - name: UFW - Allow SSH connections
