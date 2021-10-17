@@ -8,3 +8,6 @@
   - {role: 'repo', tag: 'repo'}
   - {role: 'app', tag: 'app'}
   - {role: 'nginx', tag: 'nginx'}
+  {% if not cookiecutter.separate_db %}
+  - {role: 'db', tag: 'db'}
+  {% endif %}

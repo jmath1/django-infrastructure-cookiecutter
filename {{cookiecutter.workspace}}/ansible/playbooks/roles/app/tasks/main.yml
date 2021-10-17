@@ -18,6 +18,7 @@
     ports:
       - "8000:8000"
     restart_policy: unless-stopped
-    command: gunicorn --bind 0.0.0.0:8000 {{ cookiecutter.project_name }}.wsgi:application
+    env_file: /srv/{{cookeicutter.workspace}}/.env
+    command: bash -c "python manage.py migrate; gunicorn --bind 0.0.0.0:8000 my_project.wsgi:application"
     volumes:
       - /srv/{{ cookiecutter.workspace }}/{{ cookiecutter.project_name }}/:/srv/{{ cookiecutter.workspace }}/{{ cookiecutter.project_name }}/
