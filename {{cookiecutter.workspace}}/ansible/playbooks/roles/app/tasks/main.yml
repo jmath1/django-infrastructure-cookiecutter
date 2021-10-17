@@ -1,0 +1,20 @@
+---
+
+- name: build container image
+  docker_image:
+    name: {{ cookiecutter.workspace }}
+    build:
+      path: /srv/{{ cookiecutter.workspace }}/Dockerfile
+      source: local
+- name: Start app docker container
+  become: yes
+  docker_container:
+    name: app
+    image: nginx:1.19
+    state: started
+    ports:
+      - "80:80"
+    restart_policy: unless-stopped
+    volumes:
+      - /srv/{{ cookiecutter.workspace }}/docker/nginx.conf:/etc/nginx/conf.d/default.conf
+      - /srv/{{ cookiecutter.workspace }}/:/srv/{{ cookiecutter.workspace }}/
