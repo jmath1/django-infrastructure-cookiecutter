@@ -20,4 +20,4 @@
     restart_policy: unless-stopped
     command: gunicorn --bind 0.0.0.0:8000 {{ cookiecutter.project_name }}.wsgi:application
     volumes:
-      - /srv/{{ cookiecutter.workspace }}/:/srv/{{ cookiecutter.workspace }}/
+      - /srv/{{ cookiecutter.workspace }}/{{ cookiecutter.project_name }}/:/srv/{{ cookiecutter.workspace }}/{{ cookiecutter.project_name }}/
