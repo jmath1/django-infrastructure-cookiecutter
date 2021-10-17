@@ -9,6 +9,6 @@
     ports:
       - 3306:3306
     restart_policy: unless-stopped
-    env_file: /srv/{{cookeicutter.workspace}}/.env
+    env_file: /srv/{{cookiecutter.workspace}}/.env
     volumes:
       - ./docker/volumes/mysql:/var/lib/mysql
