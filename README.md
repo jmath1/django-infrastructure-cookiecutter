@@ -11,6 +11,7 @@ To deploy to the cloud, you must have enterred a Digital Ocean api key when init
 To run the deployment, run `make app`.
 
 *** TODO ***
+* Make command for easy ssh access
 * Add terraform configuration and cookiecutter template a provisioned database instead of a docker container database
 * Add support for AWS EC2
 * Grafana/Prometheus Implementation for application monitoring via Ansible and Docker-Compose
