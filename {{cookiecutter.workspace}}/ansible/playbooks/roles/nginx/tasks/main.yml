@@ -17,3 +17,4 @@
     volumes:
       - /srv/{{ cookiecutter.workspace }}/docker/nginx/nginx.conf:/etc/nginx/conf.d/default.conf
       - /srv/{{ cookiecutter.workspace }}/:/srv/{{ cookiecutter.workspace }}
+  notify: restart nginx
