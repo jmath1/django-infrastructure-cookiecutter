@@ -13,8 +13,9 @@ Run the terraform configuration and set up the root user by running `make setup`
 To run the deployment, run `make app`.
 
 *** TODO ***
+* Nginx static files issue
 * Make a way to test this cookiecutter quickly
-* Make a CLI so users can have an easier time going through the cookie-cutter customization process. This would increase cookiecutter flexibility.
+* Make a CLI so users can have an easier time going through the cookie-cutter customization process. This would increase cookiecutter flexibility in terms of customization.
 * Make command for easy ssh access
 * Add terraform configuration and cookiecutter template a provisioned database instead of a docker container database
 * Add support for AWS EC2
